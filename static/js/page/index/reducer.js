@@ -4,7 +4,7 @@
 import { combineReducers } from 'redux'
 import {TITLE} from 'action'
 
-function getTitle(state = '', action){
+function getTitle(state = '我是header', action){
     switch(action.type){
         case TITLE:
             return action.text;

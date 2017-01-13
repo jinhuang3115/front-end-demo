@@ -5,8 +5,9 @@ import React, {Component} from 'react';
 
 export default class Header extends Component {
     render(){
+        let {headerData} = this.props;
         return (
-            <h1 onClick={this.click}>我是header</h1>
+            <h1 onClick={this.click}>{headerData}</h1>
         )
     }
     componentDidMount(){

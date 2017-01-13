@@ -16,7 +16,7 @@ const UglifyJsPlugin = new webpack.optimize.UglifyJsPlugin({
 });
 
 module.exports = {
-    //watch: true,
+    watch: true,
     entry: {
         vendor: ['react', 'react-dom'],
         index: 'index'

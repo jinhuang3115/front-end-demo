@@ -3,20 +3,30 @@
  */
 import React, {Component, PropTypes} from 'react'
 import {render} from 'react-dom'
-import {createStore} from 'redux'
-import {Provider} from 'react-redux'
+import {createStore, applyMiddleware} from 'redux'
+import {Provider, connect} from 'react-redux'
 import indexReducer from './reducer'
+import thunk from 'redux-thunk'
 import Header from 'Header'
 
-class Index extends Component {
+class component extends Component {
     render() {
+        let {headerData, dispatch} = this.props;
         return (
-            <Header/>
+            <Header headerData={headerData}/>
         )
     }
 }
 
-let store = createStore(indexReducer);
+let store = createStore(indexReducer, applyMiddleware(thunk));
+
+
+function select(state) {
+    return {
+        headerData: state.getTitle
+    }
+}
+let Index = connect(select)(component);
 
 render(
     <Provider store={store}>
